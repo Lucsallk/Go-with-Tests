@@ -16,9 +16,23 @@ import (
 )
 
 func TestHello(t *testing.T) {
-	got := Hello("Chris")
-	want := "Hello, Chris"
+	t.Run("Dizendo ola para as pessoas", func(t *testing.T) {
+		got := Hello("Chris")
+		want := "Hello, Chris"
 
+		correctMessage(t, got, want)
+	})
+
+	t.Run("diz 'Hello, World' quando uma string vazia é inputada", func(t *testing.T) {
+		got := Hello("")
+		want := "Hello, World"
+
+		correctMessage(t, got, want)
+	})
+}
+
+func correctMessage(t testing.TB, got, want string) {
+	t.Helper()
 	if got != want {
 		t.Errorf("got %q want %q", got, want)
 	}
