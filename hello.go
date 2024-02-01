@@ -2,26 +2,27 @@ package main
 
 import "fmt"
 
-const french = "French"
-const spanish = "Spanish"
+const (
+	french = "French"
+	spanish = "Spanish"
+	
+	englishPrefix = "Hello, "
+	frenchPrefix = "Bonjour, "
+	spanishPrefix = "Hola, "
+)
 
-const englishPrefix = "Hello, "
-const frenchPrefix = "Bonjour, "
-const spanishPrefix = "Hola, "
 
-func DefinePrefix(language string) string {
-	var prefix string
-
+// Funcoes privadas comecam com letras minúsculas
+func definePrefix(language string) (prefix string) {
 	switch language {
-	default :
-		prefix = englishPrefix
 	case "French":
 		prefix = frenchPrefix
 	case "Spanish":
 		prefix = spanishPrefix
+	default :
+		prefix = englishPrefix
 	}
-
-	return prefix
+	return
 }
 
 func Hello(value string, language string) string {
@@ -33,5 +34,5 @@ func Hello(value string, language string) string {
 }
 
 func main() {
-	fmt.Println(Hello("", "English"))
+	fmt.Println(Hello("", "French"))
 }
