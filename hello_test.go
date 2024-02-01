@@ -16,15 +16,21 @@ import (
 )
 
 func TestHello(t *testing.T) {
+	t.Run("Teste para saudacao em espanhol", func(t *testing.T){
+		got:= Hello("Elodie", "Spanish")
+		want := "Hola, Elodie"
+		correctMessage(t, got, want)
+	})
+
 	t.Run("Dizendo ola para as pessoas", func(t *testing.T) {
-		got := Hello("Chris")
+		got := Hello("Chris", "")
 		want := "Hello, Chris"
 
 		correctMessage(t, got, want)
 	})
 
 	t.Run("diz 'Hello, World' quando uma string vazia é inputada", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, World"
 
 		correctMessage(t, got, want)
