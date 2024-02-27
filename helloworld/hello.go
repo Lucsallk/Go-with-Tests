@@ -3,14 +3,13 @@ package main
 import "fmt"
 
 const (
-	french = "French"
+	french  = "French"
 	spanish = "Spanish"
-	
+
 	englishPrefix = "Hello, "
-	frenchPrefix = "Bonjour, "
+	frenchPrefix  = "Bonjour, "
 	spanishPrefix = "Hola, "
 )
-
 
 // Funcoes privadas comecam com letras minúsculas
 func definePrefix(language string) (prefix string) {
@@ -19,7 +18,7 @@ func definePrefix(language string) (prefix string) {
 		prefix = frenchPrefix
 	case "Spanish":
 		prefix = spanishPrefix
-	default :
+	default:
 		prefix = englishPrefix
 	}
 	return
@@ -29,8 +28,8 @@ func Hello(value string, language string) string {
 	if value == "" {
 		value = "World"
 	}
-	
-	return DefinePrefix(language) + value
+
+	return definePrefix(language) + value
 }
 
 func main() {
